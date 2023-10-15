@@ -1,7 +1,9 @@
+import Image from "next/image";
+
 const Intro = () => {
   return (
     <div>
-      This is the intro
+      <Image src={'@/public/image.jpg'} alt="profile-image" className=""></Image>
     </div>
   )
 }
