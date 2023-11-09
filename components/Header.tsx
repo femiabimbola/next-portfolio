@@ -15,7 +15,7 @@ const Header = () => {
       >
       </motion.div>
       {/* It should have been inside the nav, but becuase framer is used, it is not */}
-      <nav className='flex fixed left-[3rem] sm:left-[36rem] sm:top-[1.8rem] h-10 sm:py-0 justify-center '>
+      <nav className='flex fixed left-[3rem] sm:left-[31rem] sm:top-[1.8rem] h-10 sm:py-0 justify-center '>
         {/* Mine was gap-x-6 mt-3 */}
         <ul className='flex w-[22rem]  items-center justify-center flex-wrap gap-y-1 text-[0.9rem] font-medium text-gray-500 sm:flex-nowrap sm:gap-5'>
           {
