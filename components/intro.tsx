@@ -3,6 +3,8 @@
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Link from "next/link";
+import {BsArrowRight, BsGithub, BsLinkedin} from "react-icons/bs";
+import {HiDownload} from "react-icons/hi";
 
 const Intro = () => {
   return (
@@ -39,7 +41,7 @@ const Intro = () => {
         </div>
       </div>
       <motion.p
-        className="pt-20 md:pt-20 mb-10 mt-4  text-2xl font-medium leading-[1.5] text-center"
+        className="pt-20 md:pt-20 mb-10 mt-4  md:text-2xl font-medium leading-[1.5] text-center"
         initial={{opacity: 0, y: 200}}
         animate={{opacity: 1, y: 0}}
         transition={{type: "tween", duration: 0.3}}
@@ -53,9 +55,29 @@ const Intro = () => {
         . I focus on Javascript technologies ranging from{" "}
         <span className="font-bold">ReactJs, NextJs, NodeJs etc.</span>
       </motion.p>
-      <div>
-        <Link href={"#contact"}> Contact me here</Link>
-      </div>
+
+      <motion.div
+        className="flex flex-col sm:flex-row gap-4 items-center justify-center px-4 font-medium text-lg"
+        initial={{opacity: 0, y: 200}}
+        animate={{opacity: 1, y: 0}}
+        transition={{delay: 0.2}}
+      >
+        <Link
+          href={"#contact"}
+          className="bg-gray-900 text-white px-7 py-3 flex items-center align-middle gap-2 rounded-full"
+        >
+          Contact me here <BsArrowRight />
+        </Link>
+        <a className="bg-white px-7 py-3 flex items-center align-middle gap-2 rounded-full ">
+          Download CV <HiDownload />
+        </a>
+        <a className=" bg-white px-3 text-gray-700 py-3  flex items-center align-middle gap-2 rounded-full text-[1.35rem]">
+          <BsLinkedin />
+        </a>
+        <a className=" bg-white px-3 text-gray-700 py-3 flex items-center align-middle gap-2 rounded-full text-[1.35rem]">
+          <BsGithub />
+        </a>
+      </motion.div>
     </section>
   );
 };
