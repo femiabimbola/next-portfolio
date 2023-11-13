@@ -64,17 +64,32 @@ const Intro = () => {
       >
         <Link
           href={"#contact"}
-          className="bg-gray-900 text-white px-7 py-3 flex items-center align-middle gap-2 rounded-full"
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center align-middle gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 hover:bg-gray-950 active:scale-95"
         >
-          Contact me here <BsArrowRight />
+          Contact me here{" "}
+          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
         </Link>
-        <a className="bg-white px-7 py-3 flex items-center align-middle gap-2 rounded-full ">
-          Download CV <HiDownload />
+
+        <a
+          className="group bg-white px-7 py-3 flex items-center align-middle gap-2 rounded-full cursor-pointer outline-none focus:scale-105 hover:scale-105  active:scale-95 transition border border-black/10"
+          href="/femi-abimbola-CV.pdf"
+          download
+        >
+          Download CV{" "}
+          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
         </a>
-        <a className=" bg-white px-3 text-gray-700 py-3  flex items-center align-middle gap-2 rounded-full text-[1.35rem]">
+        <a
+          className=" bg-white px-3 text-gray-700 py-3 flex items-center align-middle gap-2 rounded-full text-[1.35rem] focus:scale-105 hover:scale-105 hover:text-gray-950 active:scale-95 transition border border-black/10 cursor-pointer"
+          href="https://linkedin.com"
+          target="_blank"
+        >
           <BsLinkedin />
         </a>
-        <a className=" bg-white px-3 text-gray-700 py-3 flex items-center align-middle gap-2 rounded-full text-[1.35rem]">
+        <a
+          className=" bg-white px-3 text-gray-700 py-3 flex items-center align-middle gap-2 rounded-full text-[1.35rem] focus:scale-105 hover:scale-105 hover:text-gray-950 active:scale-95 transition border border-black/10 cursor-pointer"
+          href="https:/github.com"
+          target="_blank"
+        >
           <BsGithub />
         </a>
       </motion.div>
