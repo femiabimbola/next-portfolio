@@ -40,7 +40,7 @@ const Intro = () => {
           </motion.span>
         </div>
       </div>
-      <motion.p
+      <motion.h1
         className="pt-20 md:pt-20 mb-10 mt-4  md:text-2xl font-medium leading-[1.5] text-center"
         initial={{opacity: 0, y: 200}}
         animate={{opacity: 1, y: 0}}
@@ -54,7 +54,7 @@ const Intro = () => {
         </span>
         . I focus on Javascript technologies ranging from{" "}
         <span className="font-bold">ReactJs, NextJs, NodeJs etc.</span>
-      </motion.p>
+      </motion.h1>
 
       <motion.div
         className="flex flex-col sm:flex-row gap-4 items-center justify-center px-4 font-medium text-lg"
