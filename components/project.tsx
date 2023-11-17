@@ -1,13 +1,16 @@
 import Image, {StaticImageData} from "next/image";
+import {projectsData} from "@/lib/data";
 
 interface ProjectProp {
   title: string;
   description?: string;
-  tag?: string[];
+  tags?: string[];
   imageUrl: StaticImageData;
 }
 
-const Project = ({title, description, tag, imageUrl}: ProjectProp) => {
+type ProjectProp2 = (typeof projectsData)[number];
+
+const Project = ({title, description, tags, imageUrl}: ProjectProp2) => {
   return (
     <div>
       <h1>{title}</h1>
