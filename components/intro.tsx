@@ -57,7 +57,7 @@ const Intro = () => {
       </motion.h1>
 
       <motion.div
-        className="flex flex-col sm:flex-row gap-4 items-center justify-center px-4 font-medium text-lg"
+        className="flex flex-wrap gap-4 items-center justify-center px-4 font-medium text-lg"
         initial={{opacity: 0, y: 200}}
         animate={{opacity: 1, y: 0}}
         transition={{delay: 0.2}}
