@@ -2,7 +2,7 @@
 
 import Image, {StaticImageData} from "next/image";
 import {projectsData} from "@/lib/data";
-import {useScroll} from "framer-motion";
+import {motion, useScroll, useTransform} from "framer-motion";
 import {useRef} from "react";
 
 interface ProjectProp {
@@ -16,14 +16,22 @@ type ProjectProp2 = (typeof projectsData)[number];
 
 const Project = ({title, description, tags, imageUrl}: ProjectProp2) => {
   const ref = useRef<HTMLElement>(null);
-  useScroll({
+  const {scrollYProgress} = useScroll({
     target: ref,
-    offset: ["0 1", "1.33 1"],
+    offset: ["0 1", "1.4 1"],
   });
+
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.7, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+
   return (
-    <section
+    <motion.section
       ref={ref}
-      className="group bg-gray-100 max-w-[45rem] border border-black/5 overflow-hidden my-6 sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition"
+      style={{
+        scale: scaleProgress,
+        opacity: opacityProgress,
+      }}
+      className="group bg-gray-100 max-w-[45rem] border border-black/5 overflow-hidden my-6 sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition rounded-lg"
     >
       <div className="py-4 px-5 sm:pl-8 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full group-even:ml-[20rem] ">
         <h3 className="text-2xl font-bold">{title}</h3>
@@ -46,7 +54,7 @@ const Project = ({title, description, tags, imageUrl}: ProjectProp2) => {
         src={imageUrl}
         quality={90}
       />
-    </section>
+    </motion.section>
   );
 };
 

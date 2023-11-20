@@ -8,7 +8,10 @@ import {HiDownload} from "react-icons/hi";
 
 const Intro = () => {
   return (
-    <section className="pt-28 md:pt-40 max-w-[52rem] mb-14 ">
+    <section
+      id="home"
+      className="pt-28 md:pt-40 max-w-[52rem] mb-14 scroll-mt-32 "
+    >
       <div className="flex items-center justify-center">
         <div className="absolute">
           <motion.div
