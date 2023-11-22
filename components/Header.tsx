@@ -3,14 +3,25 @@
 import {motion} from "framer-motion";
 import {links} from "@/lib/data";
 import Link from "next/link";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import clsx from "clsx";
+import {useActiveSectionContext} from "@/context/active-section-context";
 
 const Header = () => {
   /**
    * 1 - The relative class makes z index works better
    */
-  const [activeSection, setActiveSection] = useState("Home");
+  // const [activeSection, setActiveSection] = useState("Home");
+
+  /**
+   * const context = useContext(ActiveSectionContext);
+    if (context === null) {
+    throw new Error(
+      "useActiveSectionContext must be used within an ActiveSectionContextProvider"
+    );
+  }
+   */
+  const {activeSection, setActiveSection} = useActiveSectionContext();
 
   return (
     <header className="z-[999] relative">
@@ -43,7 +54,15 @@ const Header = () => {
               >
                 {link.name}
                 {link.name === activeSection && (
-                  <span className="bg-gray-100 rounded-full absolute inset-0 -z-10"></span>
+                  <motion.span
+                    className="bg-gray-100 rounded-full absolute inset-0 -z-10"
+                    layoutId="activeSection"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 30,
+                    }}
+                  ></motion.span>
                 )}
               </Link>
             </motion.li>
