@@ -1,4 +1,4 @@
-"use client ";
+"use client";
 
 import {projectsData} from "@/lib/data";
 import SectionHeading from "./section-heading";
@@ -9,7 +9,7 @@ import {useInView} from "react-intersection-observer";
 
 // You could have done  <Project title={project.title} />
 const Projects = () => {
-  const {ref, inView} = useInView();
+  const {ref, inView} = useInView({threshold: 0.3});
   const {activeSection, setActiveSection} = useActiveSectionContext();
   useEffect(() => {
     if (inView) setActiveSection("Projects");

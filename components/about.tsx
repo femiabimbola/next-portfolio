@@ -7,7 +7,7 @@ import {useEffect} from "react";
 import {useInView} from "react-intersection-observer";
 
 const About = () => {
-  const {ref, inView} = useInView();
+  const {ref, inView} = useInView({threshold: 0.75});
   // In view tell us what is displays
   const {activeSection, setActiveSection} = useActiveSectionContext();
 
@@ -18,6 +18,7 @@ const About = () => {
 
   return (
     <motion.section
+      ref={ref}
       className="mb-20 max-w-[45rem] leading-6 sm:mb-32 scroll-mt-32"
       initial={{opacity: 0, y: 100}}
       animate={{opacity: 1, y: 0}}

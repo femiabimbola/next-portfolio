@@ -5,10 +5,20 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import {BsArrowRight, BsGithub, BsLinkedin} from "react-icons/bs";
 import {HiDownload} from "react-icons/hi";
+import {useActiveSectionContext} from "@/context/active-section-context";
+import {useEffect} from "react";
+import {useInView} from "react-intersection-observer";
 
 const Intro = () => {
+  const {ref, inView} = useInView({threshold: 0.3});
+  const {activeSection, setActiveSection} = useActiveSectionContext();
+  useEffect(() => {
+    if (inView) setActiveSection("Home");
+  }, [inView, setActiveSection]);
+
   return (
     <section
+      ref={ref}
       id="home"
       className="pt-28 md:pt-40 max-w-[52rem] mb-14 scroll-mt-32 "
     >
