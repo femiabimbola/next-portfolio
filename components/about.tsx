@@ -1,9 +1,21 @@
 "use client";
 
 import SectionHeading from "@/components/section-heading";
+import {useActiveSectionContext} from "@/context/active-section-context";
 import {motion} from "framer-motion";
+import {useEffect} from "react";
+import {useInView} from "react-intersection-observer";
 
 const About = () => {
+  const {ref, inView} = useInView();
+  // In view tell us what is displays
+  const {activeSection, setActiveSection} = useActiveSectionContext();
+
+  // if (inView) setActiveSection("About"); !Not recommended to do that during rendering
+  useEffect(() => {
+    if (inView) setActiveSection("About");
+  }, [inView, setActiveSection]);
+
   return (
     <motion.section
       className="mb-20 max-w-[45rem] leading-6 sm:mb-32 scroll-mt-32"
