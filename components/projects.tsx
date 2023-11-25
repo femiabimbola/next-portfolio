@@ -6,18 +6,21 @@ import Project from "./project";
 import {useActiveSectionContext} from "@/context/active-section-context";
 import {useEffect} from "react";
 import {useInView} from "react-intersection-observer";
+import {useSectionInView} from "@/lib/hooks";
 
 // You could have done  <Project title={project.title} />
 const Projects = () => {
-  const {ref, inView} = useInView({threshold: 0.3});
-  const {activeSection, setActiveSection, timeOfLastClick} =
-    useActiveSectionContext();
+  const {ref} = useSectionInView("Projects", 0.3);
 
-  useEffect(() => {
-    if (inView && Date.now() - timeOfLastClick > 1000) {
-      setActiveSection("Projects");
-    }
-  }, [inView, setActiveSection, timeOfLastClick]);
+  // // const {ref, inView} = useInView({threshold: 0.3});
+  // const {activeSection, setActiveSection, timeOfLastClick} =
+  //   useActiveSectionContext();
+
+  // useEffect(() => {
+  //   if (inView && Date.now() - timeOfLastClick > 1000) {
+  //     setActiveSection("Projects");
+  //   }
+  // }, [inView, setActiveSection, timeOfLastClick]);
 
   // ref means, this is what I'm talking about
   return (
