@@ -5,9 +5,6 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import {BsArrowRight, BsGithub, BsLinkedin} from "react-icons/bs";
 import {HiDownload} from "react-icons/hi";
-import {useActiveSectionContext} from "@/context/active-section-context";
-import {useEffect} from "react";
-import {useInView} from "react-intersection-observer";
 import {useSectionInView} from "@/lib/hooks";
 
 const Intro = () => {
