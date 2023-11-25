@@ -11,10 +11,13 @@ import {useInView} from "react-intersection-observer";
 
 const Intro = () => {
   const {ref, inView} = useInView({threshold: 0.3});
-  const {activeSection, setActiveSection} = useActiveSectionContext();
+  const {activeSection, setActiveSection, timeOfLastClick} =
+    useActiveSectionContext();
   useEffect(() => {
-    if (inView) setActiveSection("Home");
-  }, [inView, setActiveSection]);
+    if (inView && Date.now() - timeOfLastClick > 1000) {
+      setActiveSection("Home");
+    }
+  }, [inView, setActiveSection, timeOfLastClick]);
 
   return (
     <section

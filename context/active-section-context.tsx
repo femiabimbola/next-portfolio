@@ -22,7 +22,7 @@ export default function ActiveSectionContextProvider({
 }: ActiveSectionContextProviderProps) {
   // You can do  = ...useState<"Home" | "about" > You dont want activeSection to just read string
   const [activeSection, setActiveSection] = useState<SectionName>("Home");
-  const [timeOfLastClick, setTimeOfLastClick] = useState(0); // we need to keep track of this to disable the observer temporarily when user clicks on a link
+  const [timeOfLastClick, setTimeOfLastClick] = useState<number>(0); // we need to keep track of this to disable the observer temporarily when user clicks on a link
 
   return (
     <ActiveSectionContext.Provider

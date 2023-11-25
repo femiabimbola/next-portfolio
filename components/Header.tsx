@@ -21,7 +21,8 @@ const Header = () => {
     );
   }
    */
-  const {activeSection, setActiveSection} = useActiveSectionContext();
+  const {activeSection, setActiveSection, setTimeOfLastClick} =
+    useActiveSectionContext();
 
   return (
     <header className="z-[999] relative">
@@ -44,7 +45,10 @@ const Header = () => {
               <Link
                 href={link.hash}
                 // We can do cosnt handleclick = () => setActiveSection(link.name)
-                onClick={() => setActiveSection(link.name)}
+                onClick={() => {
+                  setActiveSection(link.name);
+                  setTimeOfLastClick(Date.now());
+                }}
                 className={clsx(
                   "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition",
                   {

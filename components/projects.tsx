@@ -10,10 +10,14 @@ import {useInView} from "react-intersection-observer";
 // You could have done  <Project title={project.title} />
 const Projects = () => {
   const {ref, inView} = useInView({threshold: 0.3});
-  const {activeSection, setActiveSection} = useActiveSectionContext();
+  const {activeSection, setActiveSection, timeOfLastClick} =
+    useActiveSectionContext();
+
   useEffect(() => {
-    if (inView) setActiveSection("Projects");
-  }, [inView, setActiveSection]);
+    if (inView && Date.now() - timeOfLastClick > 1000) {
+      setActiveSection("Projects");
+    }
+  }, [inView, setActiveSection, timeOfLastClick]);
 
   // ref means, this is what I'm talking about
   return (
