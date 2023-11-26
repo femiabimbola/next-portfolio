@@ -21,7 +21,8 @@ const Skills = () => {
   return (
     <section
       ref={ref}
-      className=" mb-28 max-w-[55rem] scroll-mt-28 text-center sm:mb-40"
+      id="skills"
+      className=" mb-28 max-w-[55rem] scroll-mt-28 text-center sm:mb-50"
     >
       <SectionHeading> My Skills</SectionHeading>
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
