@@ -8,12 +8,14 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import {useSectionInView} from "@/lib/hooks";
 
 const Experience = () => {
+  const {ref} = useSectionInView("Experience", 0.75);
   return (
-    <section id="experience">
+    <section id="experience" ref={ref} className="sm:mb-28 scroll-mt-28">
       <SectionHeading> My Experience</SectionHeading>
-      <VerticalTimeline lineColor="">
+      <VerticalTimeline lineColor="" animate={true}>
         {/* Dont use key as index on third party component */}
         {experiencesData.map((item, index) => (
           <React.Fragment key={index}>
