@@ -8,6 +8,12 @@ import {motion} from "framer-motion";
 const Contact = () => {
   // scroll-mt ensure it not behind the header
   const {ref} = useSectionInView("Contact", 0.75);
+  const sendEmail = async (formData: FormData) => {
+    "use server";
+    console.log("running on server");
+    console.log(formData.get("senderEmail"));
+    console.log(formData.get("message"));
+  };
   return (
     <motion.section
       ref={ref}
@@ -15,7 +21,7 @@ const Contact = () => {
       whileInView={{opacity: 1}}
       transition={{duration: 0.5}}
       id="contact"
-      className="mb-20 sm:mb-28 w-[min(100%, 38rem)] text-center"
+      className="mb-20 sm:mb-28 w-[min(100%, 38rem)] text-center scroll-mt-28"
     >
       <SectionHeading> Contact Me</SectionHeading>
       <p className="text-gray-700 -mt-4">
@@ -25,15 +31,29 @@ const Contact = () => {
         </a>{" "}
         or through this form
       </p>
-      <form className="mt-10 flex flex-col">
+      <form
+        className="mt-10 flex flex-col"
+        action={async (formData) => {
+          console.log("running on client");
+          console.log(formData.get("senderEmail"));
+          await sendEmail(formData);
+        }}
+      >
         <input
-          className="h-14 rounded-lg px-4 italic border border-black/10"
+          className="h-14 rounded-lg px-4  border border-black/10"
           type="email"
+          name="senderEmail"
+          required
+          maxLength={300}
           placeholder="Enter your email"
         />
         <textarea
           className="h-52 my-3 rounded-lg border border-black/10 p-4"
           placeholder="Enter your message"
+          name="message"
+          required
+          minLength={10}
+          maxLength={600}
         />
         <button
           type="submit"

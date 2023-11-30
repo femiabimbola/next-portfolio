@@ -6,10 +6,13 @@ import Link from "next/link";
 import {BsArrowRight, BsGithub, BsLinkedin} from "react-icons/bs";
 import {HiDownload} from "react-icons/hi";
 import {useSectionInView} from "@/lib/hooks";
+import {useActiveSectionContext} from "@/context/active-section-context";
 
 const Intro = () => {
   // const {ref} = useSectionInView({sectionName: "Home"});
   const {ref} = useSectionInView("Home", 0.3);
+  // const {activeSection, setActiveSection, setTimeOfLastClick} =
+  //   useActiveSectionContext();
 
   return (
     <section
@@ -72,6 +75,10 @@ const Intro = () => {
       >
         <Link
           href={"#contact"}
+          // onClick={() => {
+          //   setActiveSection("#Contact");
+          //   setTimeOfLastClick(Date.now());
+          // }}
           className="group bg-gray-900 text-white px-7 py-3 flex items-center align-middle gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 hover:bg-gray-950 active:scale-95"
         >
           Contact me here{" "}
