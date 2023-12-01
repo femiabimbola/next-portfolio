@@ -4,16 +4,12 @@ import {FaPaperPlane} from "react-icons/fa";
 import SectionHeading from "./section-heading";
 import {useSectionInView} from "@/lib/hooks";
 import {motion} from "framer-motion";
+import {sendEmail} from "@/actions/sendEmail";
 
 const Contact = () => {
   // scroll-mt ensure it not behind the header
   const {ref} = useSectionInView("Contact", 0.75);
-  const sendEmail = async (formData: FormData) => {
-    "use server";
-    console.log("running on server");
-    console.log(formData.get("senderEmail"));
-    console.log(formData.get("message"));
-  };
+
   return (
     <motion.section
       ref={ref}
