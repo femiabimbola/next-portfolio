@@ -2,9 +2,10 @@
 
 import { getErrorMessage, validateString } from '@/lib/utlis';
 import {Resend} from 'resend'
+import ContactFormEmail from '@/email/contact-form-email';
+import React from 'react';
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-
 
 
 export const sendEmail = async (formData: FormData) => {
@@ -23,7 +24,6 @@ export const sendEmail = async (formData: FormData) => {
   // if(typeof senderEmail !== 'string'){
   //   return { error: 'invalid sender email'}
   // }
-
     // Learning -> new Error('message') this throw new error
 
   if(!validateString(senderEmail, 500)) return { error: 'invalid sender email'}
@@ -37,9 +37,9 @@ try {
     subject:'Message from contact form',
     reply_to: senderEmail as string,
     // text: message as string,
-    // react:
+    react: React.createElement(ContactFormEmail, {message:message as string, senderEmail: senderEmail as string })
+    // react: <ContactFormEmail message={message} senderEmail={senderEmail}/>
   })
-  await console.log('executed')
 } catch (error: unknown) {
   return { error: getErrorMessage(error)}
   
