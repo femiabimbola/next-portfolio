@@ -11,7 +11,6 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export const sendEmail = async (formData: FormData) => {
 
   console.log("running on server");
-  console.log(formData.get("message"));
   const message = formData.get('message')
   const senderEmail =  formData.get('senderEmail')
   
@@ -36,13 +35,12 @@ try {
     to: 'abimbola_mj@yahoo.com',
     subject:'Message from contact form',
     reply_to: senderEmail as string,
-    // text: message as string,
-    react: React.createElement(ContactFormEmail, {message:message as string, senderEmail: senderEmail as string })
-    // react: <ContactFormEmail message={message} senderEmail={senderEmail}/>
+    text: message as string,
+    // react: React.createElement(ContactFormEmail, {message:message as string, senderEmail: senderEmail as string })
   })
+  await console.log('executed')
 } catch (error: unknown) {
   return { error: getErrorMessage(error)}
-  
 }
 
 };
