@@ -5,6 +5,7 @@ import {Inter, Nunito} from "next/font/google";
 import ActiveSectionContextProvider, {
   ActiveSectionContext,
 } from "@/context/active-section-context";
+import {Toaster} from "react-hot-toast";
 
 const inter = Nunito({subsets: ["latin"]});
 
@@ -24,6 +25,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <ActiveSectionContextProvider>
           <Header />
           {children}
+          <Toaster position="top-center" />
         </ActiveSectionContextProvider>
       </body>
     </html>

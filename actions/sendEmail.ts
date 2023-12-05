@@ -16,21 +16,19 @@ export const sendEmail = async (formData: FormData) => {
   
   // learningPoint -> this is for text value comment  one to see what happens
   
-  // if(!message || typeof message !== 'string') {
-  //   return { status: 400, message: 'no message found'}
-  // }
-
-  // if(typeof senderEmail !== 'string'){
-  //   return { error: 'invalid sender email'}
-  // }
-    // Learning -> new Error('message') this throw new error
+  // if(!message || typeof message !== 'string') return { status: 400, message: 'no message found'}
+  
+  // if(typeof senderEmail !== 'string') return { error: 'invalid sender email'}
+  
+  // Learning -> new Error('message') this throw new error
 
   if(!validateString(senderEmail, 500)) return { error: 'invalid sender email'}
   if(!validateString(message, 5000)) return { error: 'invalid message'}
 
+let data;
 try {
   await console.log('executing')
-  await resend.emails.send({
+  data = await resend.emails.send({
     from:"Contact Form   <onboarding@resend.dev>",
     to: 'abimbola_mj@yahoo.com',
     subject:'Message from contact form',
@@ -40,8 +38,10 @@ try {
   })
   await console.log('executed')
 } catch (error: unknown) {
-  return { error: getErrorMessage(error)}
+  return { error: getErrorMessage(error)};
 }
+
+return {data,};
 
 };
 

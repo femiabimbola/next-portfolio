@@ -5,10 +5,11 @@ const SubmitButton = () => {
   return (
     <button
       type="submit"
-      className="group h-[3rem] w-[8rem] bg-gray-900 flex items-center justify-center gap-2 text-white rounded-full outline-none transition-all focus:scale-105 hover:scale-105 hover:bg-gray-950 active:scale-95 disabled:bg-opacity-75 disabled:scale-100"
+      className="group h-[3rem] w-[8rem] bg-gray-900 flex items-center justify-center gap-2 text-white rounded-full outline-none transition-all focus:scale-105 hover:scale-105 hover:bg-gray-950 active:scale-95 disabled:bg-opacity-65 disabled:scale-100"
       disabled={pending}
     >
       {pending ? (
+        // This div works as a default animation
         <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white">
           {" "}
         </div>

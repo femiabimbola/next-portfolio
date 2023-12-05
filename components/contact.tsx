@@ -5,6 +5,7 @@ import SectionHeading from "./section-heading";
 import {useSectionInView} from "@/lib/hooks";
 import {motion} from "framer-motion";
 import {sendEmail} from "@/actions/sendEmail";
+import toast from "react-hot-toast";
 
 import SubmitButton from "./submit-button";
 
@@ -34,7 +35,13 @@ const Contact = () => {
         action={async (formData) => {
           console.log("running on client");
           console.log(formData.get("senderEmail"));
-          await sendEmail(formData);
+          const {data, error} = await sendEmail(formData);
+          if (error) {
+            toast.error(error);
+            return;
+          }
+
+          alert("Email sent successfully!");
         }}
       >
         <input
