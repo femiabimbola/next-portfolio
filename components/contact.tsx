@@ -41,7 +41,7 @@ const Contact = () => {
             return;
           }
 
-          alert("Email sent successfully!");
+          toast.success("Email sent successfully!");
         }}
       >
         <input
