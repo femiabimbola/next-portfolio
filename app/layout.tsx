@@ -7,6 +7,7 @@ import ActiveSectionContextProvider, {
 } from "@/context/active-section-context";
 import {Toaster} from "react-hot-toast";
 import Footer from "@/components/footer";
+import ThemeSwitch from "@/components/theme-switch";
 
 const inter = Nunito({subsets: ["latin"]});
 
@@ -29,6 +30,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           {children}
           <Footer />
         </ActiveSectionContextProvider>
+        <ThemeSwitch />
       </body>
     </html>
   );
