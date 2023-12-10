@@ -31,7 +31,7 @@ const Project = ({title, description, tags, imageUrl}: ProjectProp2) => {
         scale: scaleProgress,
         opacity: opacityProgress,
       }}
-      className="group bg-gray-100 max-w-[45rem] border border-black/5 overflow-hidden my-6 sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition rounded-lg"
+      className="group bg-gray-100 max-w-[45rem] border border-black/5 overflow-hidden my-6 sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition rounded-lg dark:bg-white/10 dark:hover:bg-white/20"
     >
       <div className="py-4 px-5 sm:pl-8 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full group-even:ml-[20rem] ">
         <h3 className="text-2xl font-bold">{title}</h3>

@@ -33,7 +33,7 @@ const Skills = () => {
             whileInView="animate"
             viewport={{once: false}}
             key={index}
-            className="bg-white border border-black/[0.1] rounded-full px-5 py-2"
+            className="bg-white border border-black/[0.1] rounded-full px-5 py-2 dark:bg-white/10 dark:text-white/80"
             custom={index}
           >
             {skill}
