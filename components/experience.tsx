@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {useContext} from "react";
 import SectionHeading from "@/components/section-heading";
 import {experiencesData} from "@/lib/data";
 import {
@@ -9,9 +9,14 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import {useSectionInView} from "@/lib/hooks";
+import {ThemeContext, useTheme} from "@/context/theme-context";
 
 const Experience = () => {
   const {ref} = useSectionInView("Experience", 0.75);
+
+  // const {theme, toggle }= useContext(ThemeContext);
+  const {theme} = useTheme();
+
   return (
     <section id="experience" ref={ref} className="sm:mb-28 scroll-mt-28">
       <SectionHeading> My Experience</SectionHeading>
@@ -30,7 +35,10 @@ const Experience = () => {
                 padding: "1.3rem 2rem",
               }}
               contentArrowStyle={{
-                borderRight: "0.4rem solid #9ca3af",
+                borderRight:
+                  theme === "light"
+                    ? "0.4rem solid #9ca3af"
+                    : "0.4rem solid rgba(255 255 255, 0.5) ",
               }}
               date={item.date}
               icon={item.icon}
