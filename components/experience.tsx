@@ -28,7 +28,7 @@ const Experience = () => {
               visible={true}
               contentStyle={{
                 background:
-                  theme === "light" ? "#f3f4f6" : "#rgba(255, 255, 255, 0.65)",
+                  theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
                 boxShadow: "none",
                 border: "1px solid rgba(0, 0, 0, 0.05)",
                 textAlign: "left",
@@ -38,18 +38,21 @@ const Experience = () => {
                 borderRight:
                   theme === "light"
                     ? "0.4rem solid #9ca3af"
-                    : "0.4rem solid rgba(255 255 255, 0.5) ",
+                    : "0.4rem solid rgba(255 255 255, 0.5)",
               }}
               date={item.date}
               icon={item.icon}
               iconStyle={{
-                background: "white",
+                background:
+                  theme === "light" ? "white" : "rgba(255 255 255, 0.2)",
                 fontSize: "1.5rem",
               }}
             >
               <h3 className="font-bold capitalize">{item.title}</h3>
               <p className=" !mt-0">{item.location}</p>
-              <p className="!mt-1 text-gray-700">{item.description}</p>
+              <p className="!mt-1 text-gray-700 dark:text-white/60">
+                {item.description}
+              </p>
             </VerticalTimelineElement>
           </React.Fragment>
         ))}
