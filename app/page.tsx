@@ -7,8 +7,9 @@ import Divider from "@/components/section-divider";
 import Skills from "@/components/skills";
 
 export default function Home() {
-  return (
-    <main className="flex flex-col items-center px-4 overflow-hidden ">
+  return ( 
+    // overflow-hidden
+    <main className="flex flex-col items-center px-4">
       <Intro />
       <Divider />
       <About />

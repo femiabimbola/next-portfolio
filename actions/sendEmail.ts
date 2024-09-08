@@ -42,6 +42,5 @@ try {
 }
 
 return {data,};
-
 };
 
