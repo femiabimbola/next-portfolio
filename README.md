@@ -1,13 +1,5 @@
-## Getting Started
+## A Portfolio Website
 
-First, run the development server:
+- https://github.com/ByteGrad/portfolio-website/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-## Learn More
